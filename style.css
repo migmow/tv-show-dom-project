@@ -1,68 +1,141 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+
+}
+
+:root {}
+
 #root {
   color: black;
   display: flex;
   flex-direction: column;
-  background-color: rgb(167, 167, 167);
+  background-color: rgb(255, 255, 255);
+  justify-content: space-between;
+  width: 100%;
+}
+
+.header_container {
+
+  background-color: rgb(29, 29, 80);
+  width: 100%;
+  padding: 0.5em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: white;
+  z-index: 20;
+}
+
+.nav_bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .input_span {
-  float: right;
   font-size: 1.1em;
-  margin-left: 3em;
+  color: white;
+}
+
+#list {
+  font-size: 1.8em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+.ul_burger {
+  display: flex;
+}
+
+.ul_burger li {
+  padding-right: 1.5em;
+  list-style: none;
+  margin: 0 10px;
+}
+
+.ul_burger li a {
+  color: wheat;
+}
+
+.menu {
+
+  padding-top: 0.8em;
 }
 
 #searchWarpper {
-  margin: 5em 5em;
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
-  align-items: center;
+  width: 50%;
+  flex-direction: column;
 }
 
 .searchbar_input {
-  width: 32%;
-  font-size: 2em;
-  position: relative;
+  padding: 0.5em;
+  border-radius: 20px;
+  background-color: rgb(185, 184, 184);
+  margin-right: 2em;
+}
+
+.burger_container {
+  cursor: pointer;
+}
+
+.episode {
+  padding: 0.5em;
+  margin-top: 0.5em;
+  border-radius: 20px;
+  margin-right: 2em;
+}
+
+#fav_tvshow {
+  padding: 0.5em;
+  border-radius: 20px;
+  margin-right: 2em;
+  margin-top: 0.5em;
 }
 
 article {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
-
+  justify-content: space-around;
+  margin-top: 20em;
 }
 
 .card {
-  border: 8px solid navy;
+  padding: 0.5em;
+  text-align: center;
+  border-radius: 20px;
   width: 30%;
   display: flex;
   flex-direction: column;
-  margin: 10px;
   background-color: lightslategray;
+  overflow-y: scroll;
+  height: 60vh;
+  margin-top: 1em;
 
 }
 
 h1 {
   text-align: center;
-  width: 100%;
-  font-size: 2em;
+  font-size: 1.4rem;
   color: white;
 
 }
 
 p {
-  text-align: justify;
-  padding: 0.5em;
-  font-size: 1.3em;
+
+  font-size: 1rem;
 
 }
 
 img {
-
-  opacity: 0.5;
-}
-
-img:hover {
-  opacity: 1.0;
+  height: 150px;
+  border-radius: 20px;
 }
