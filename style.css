@@ -7,7 +7,14 @@
 
 }
 
-:root {}
+:root {
+  --BabyBlue: #7EC8E3;
+  --Blue: #0000FF;
+  --NavyBlue: #000C66;
+  --LightBlue: #00f7ff;
+  --Black: #0B1320;
+
+}
 
 #root {
   color: black;
@@ -20,13 +27,13 @@
 
 .header_container {
 
-  background-color: rgb(29, 29, 80);
+  background-color: var(--NavyBlue);
   width: 100%;
   padding: 0.5em;
   position: fixed;
   top: 0;
   left: 0;
-  color: white;
+  color: var(--BabyBlue);
   z-index: 20;
 }
 
@@ -34,11 +41,15 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  flex-direction: row-reverse;
 }
 
 .input_span {
   font-size: 1.1em;
-  color: white;
+  text-align: center;
+  color: var(--NavyBlue);
+  font-weight: 900;
+
 }
 
 #list {
@@ -51,18 +62,37 @@
   color: white;
 }
 
-.ul_burger {
-  display: flex;
+
+
+.top {
+  padding: 0.2em 1.2em;
+  background: var(--LightBlue);
+  margin: 3px 0;
+  border-radius: 2px;
+}
+
+.middle {
+  padding: 0.2em 1.2em;
+  background: var(--LightBlue);
+  margin: 3px 0;
+  border-radius: 2px;
+}
+
+.bottom {
+  padding: 0.2em 1.2em;
+  background: var(--LightBlue);
+  margin: 3px 0;
+  border-radius: 2px;
 }
 
 .ul_burger li {
-  padding-right: 1.5em;
+
   list-style: none;
   margin: 0 10px;
 }
 
 .ul_burger li a {
-  color: wheat;
+  color: var(--BabyBlue);
 }
 
 .menu {
@@ -74,18 +104,33 @@
   display: flex;
   width: 50%;
   flex-direction: column;
+  width: 40%;
+
 }
 
 .searchbar_input {
   padding: 0.5em;
   border-radius: 20px;
-  background-color: rgb(185, 184, 184);
+
   margin-right: 2em;
 }
 
 .burger_container {
   cursor: pointer;
 }
+
+.burger_menu {
+  width: 100%;
+  position: fixed;
+  height: 100vh;
+  background: var(--BlueGreen);
+  top: 0;
+  left: 0;
+  transition: all 2s;
+  transform: translateX(100%);
+  z-index: 10;
+}
+
 
 .episode {
   padding: 0.5em;
@@ -101,11 +146,16 @@
   margin-top: 0.5em;
 }
 
+main {
+  background: var(--BabyBlue)
+}
+
 article {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin-top: 20em;
+  margin-top: 8em;
+  ;
 }
 
 .card {
@@ -115,7 +165,7 @@ article {
   width: 30%;
   display: flex;
   flex-direction: column;
-  background-color: lightslategray;
+  background-color: var(--NavyBlue);
   overflow-y: scroll;
   height: 60vh;
   margin-top: 1em;
@@ -126,16 +176,63 @@ h1 {
   text-align: center;
   font-size: 1.4rem;
   color: white;
+  margin-bottom: 1rem;
 
 }
 
 p {
-
+  color: white;
   font-size: 1rem;
-
+  margin-top: 1rem;
 }
 
 img {
   height: 150px;
   border-radius: 20px;
+}
+
+.footer_container {
+  width: 100%;
+  background: var(--Black);
+  text-align: center;
+  padding: 1em;
+  font-size: 0.6rem;
+  color: white;
+
+}
+
+
+
+
+@media screen and (min-width: 500px) {
+
+  .burger_container,
+  .burger_menu {
+    display: none;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: center;
+    width: 40%;
+    cursor: pointer;
+  }
+}
+
+
+@media only screen and (max-width: 500px) {
+  .menu {
+    display: none;
+  }
+
+  .ul_burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+  }
 }

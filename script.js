@@ -22,12 +22,16 @@ function rendering(allEpisodes, all) {
     return n.toString().padStart(2, '0');
   }
   //level 100:=================================================================================================
+  let mainTag = document.createElement("main");
   let articleTag = document.createElement("article");
   articleTag.className = "episodes_article";
+
+
   //Header:
   let headerTag = document.createElement("header");
   headerTag.className = "header_container";
   rootTag.appendChild(headerTag);
+  rootTag.appendChild(mainTag);
 
   let navTag = document.createElement("nav");
   navTag.className = "nav_bar";
@@ -36,8 +40,6 @@ function rendering(allEpisodes, all) {
   let divMenuTag = document.createElement("div");
   divMenuTag.className = "menu";
   navTag.appendChild(divMenuTag);
-
-
 
 
   let divBurger = document.createElement("div");
@@ -68,6 +70,13 @@ function rendering(allEpisodes, all) {
   divBurger.appendChild(ulBurgur.cloneNode(true));
   divMenuTag.appendChild(ulBurgur.cloneNode(true));
 
+  //footer
+  let footerTag = document.createElement("footer");
+  footerTag.className = "footer_container";
+  footerTag.innerHTML = "Photos from TV Maze";
+
+  rootTag.appendChild(footerTag);
+
 
   //=============================================================creating a function to show episodes
   let inputTag = document.createElement("input");
@@ -83,12 +92,16 @@ function rendering(allEpisodes, all) {
     if (myArray.length === 0) {
       return articleTag.innerHTML = "<h1>Oops! Nothing found...</h1>"
     }
+
     //creating the episodes on our page
     myArray.forEach(obj => {
 
       let cardDiv = document.createElement("div");
       cardDiv.setAttribute("class", "card");
       articleTag.appendChild(cardDiv);
+      let h1Tag = document.createElement("h1");
+      h1Tag.innerHTML = `${obj.name} - S${creatTwoDigits(obj.season)}E${creatTwoDigits(obj.number)}`;
+      cardDiv.appendChild(h1Tag);
 
       let imgTag = document.createElement("img");
       //adding an if statement to make sure that we have replacement for those none-medium objects
@@ -101,9 +114,7 @@ function rendering(allEpisodes, all) {
 
       cardDiv.appendChild(imgTag);
 
-      let h1Tag = document.createElement("h1");
-      h1Tag.innerHTML = `${obj.name} - S${creatTwoDigits(obj.season)}E${creatTwoDigits(obj.number)}`;
-      cardDiv.appendChild(h1Tag);
+
 
 
       let pTag = document.createElement("p");
@@ -164,6 +175,7 @@ function rendering(allEpisodes, all) {
   let spanTag = document.createElement("span");
   spanTag.className = "input_span";
   spanTag.innerText = `Displaying ${myEpisodes.length}/${allEpisodes.length} episodes`;
+  mainTag.appendChild(spanTag);
 
 
   divSearchBar.setAttribute("id", "searchWarpper");
@@ -174,7 +186,7 @@ function rendering(allEpisodes, all) {
   inputTag.setAttribute("placeholder", "search..");
   inputTag.className = "searchbar_input"
   divSearchBar.appendChild(inputTag);
-  rootTag.appendChild(articleTag);
+  mainTag.appendChild(articleTag);
 
   //add event to input for to show live search
 
