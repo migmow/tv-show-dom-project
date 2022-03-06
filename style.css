@@ -63,6 +63,7 @@
   width: 100%;
   text-align: center;
   color: white;
+
 }
 
 
@@ -92,10 +93,12 @@
 
   list-style: none;
   margin: 0 10px;
+
 }
 
 .ul_burger li a {
   color: var(--BabyBlue);
+  text-decoration: none;
 }
 
 .menu {
@@ -217,6 +220,7 @@ img {
   .burger_container,
   .burger_menu {
     display: none;
+
   }
 
   .menu {
@@ -224,7 +228,21 @@ img {
     flex-direction: row;
     justify-content: space-evenly;
     text-align: center;
-    width: 40%;
+    width: 50%;
     cursor: pointer;
+  }
+
+  .ul_burger {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    padding-top: 2rem;
+
+
+  }
+
+  .ul_burger li a {
+    text-decoration: none;
+    padding-right: 1.5rem;
   }
 }
