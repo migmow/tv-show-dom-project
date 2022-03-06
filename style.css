@@ -37,6 +37,8 @@
   z-index: 20;
 }
 
+
+
 .nav_bar {
   width: 100%;
   display: flex;
@@ -49,6 +51,7 @@
   text-align: center;
   color: var(--NavyBlue);
   font-weight: 900;
+  display: block;
 
 }
 
@@ -66,21 +69,21 @@
 
 .top {
   padding: 0.2em 1.2em;
-  background: var(--LightBlue);
+  background: var(--BabyBlue);
   margin: 3px 0;
   border-radius: 2px;
 }
 
 .middle {
   padding: 0.2em 1.2em;
-  background: var(--LightBlue);
+  background: var(--BabyBlue);
   margin: 3px 0;
   border-radius: 2px;
 }
 
 .bottom {
   padding: 0.2em 1.2em;
-  background: var(--LightBlue);
+  background: var(--BabyBlue);
   margin: 3px 0;
   border-radius: 2px;
 }
@@ -96,7 +99,7 @@
 }
 
 .menu {
-
+  display: none;
   padding-top: 0.8em;
 }
 
@@ -117,20 +120,25 @@
 
 .burger_container {
   cursor: pointer;
+  z-index: 100;
 }
 
 .burger_menu {
   width: 100%;
-  position: fixed;
   height: 100vh;
-  background: var(--BlueGreen);
+  position: fixed;
   top: 0;
   left: 0;
+  background: var(--BlueGreen);
   transition: all 2s;
-  transform: translateX(100%);
-  z-index: 10;
+  transform: translateX(100%) rotate(0deg);
 }
 
+.moving_menu {
+  transform: translateX(0%) rotate(1800deg);
+  background: rgb(29, 28, 28);
+
+}
 
 .episode {
   padding: 0.5em;
@@ -147,15 +155,15 @@
 }
 
 main {
-  background: var(--BabyBlue)
+  background: var(--BabyBlue);
+  padding-top: 10rem;
 }
 
 article {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin-top: 8em;
-  ;
+
 }
 
 .card {
@@ -204,7 +212,7 @@ img {
 
 
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 501px) {
 
   .burger_container,
   .burger_menu {
@@ -217,22 +225,6 @@ img {
     justify-content: space-evenly;
     text-align: center;
     width: 40%;
-    cursor: pointer;
-  }
-}
-
-
-@media only screen and (max-width: 500px) {
-  .menu {
-    display: none;
-  }
-
-  .ul_burger {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    text-align: center;
-    width: 100%;
     cursor: pointer;
   }
 }

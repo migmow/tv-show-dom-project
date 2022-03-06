@@ -70,6 +70,11 @@ function rendering(allEpisodes, all) {
   divBurger.appendChild(ulBurgur.cloneNode(true));
   divMenuTag.appendChild(ulBurgur.cloneNode(true));
 
+  divNavBurger.addEventListener("click", () => {
+    divBurger.classList.toggle("moving_menu");
+  })
+
+
   //footer
   let footerTag = document.createElement("footer");
   footerTag.className = "footer_container";
