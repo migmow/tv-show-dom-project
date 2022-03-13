@@ -1,0 +1,18 @@
+:root {
+    --BabyBlue: #7EC8E3;
+    --Blue: #0000FF;
+    --NavyBlue: #000C66;
+    --LightBlue: #00f7ff;
+    --Black: #0B1320;
+
+}
+
+.footer_container {
+    width: 100%;
+    background: var(--Black);
+    text-align: center;
+    padding: 1em;
+    font-size: 0.6rem;
+    color: white;
+
+}

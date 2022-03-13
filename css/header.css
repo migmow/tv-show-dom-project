@@ -1,0 +1,164 @@
+:root {
+    --BabyBlue: #7EC8E3;
+    --Blue: #0000FF;
+    --NavyBlue: #000C66;
+    --LightBlue: #00f7ff;
+    --Black: #0B1320;
+
+}
+
+#root {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    justify-content: space-between;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.header {
+
+    background-color: var(--NavyBlue);
+    width: 100%;
+    padding: 0.5em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: var(--BabyBlue);
+    z-index: 20;
+}
+
+
+
+.header_nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+
+
+
+#list {
+    font-size: 1.8em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    text-align: center;
+    color: white;
+
+}
+
+
+
+.top,
+.middle,
+.bottom {
+    padding: 0.2em 1.2em;
+    background: var(--BabyBlue);
+    margin: 3px 0;
+    border-radius: 2px;
+}
+
+.ul_burger {
+    height: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+
+    text-align: center;
+}
+
+.ul_burger li {
+
+    list-style: none;
+    margin: 0 10px;
+
+}
+
+.ul_burger li a {
+    color: var(--BabyBlue);
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.header_menu_div {
+    display: none;
+    padding-top: 0.8em;
+}
+
+#searchWarpper {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+
+}
+
+.search_bar,
+.select_episode_tag,
+#fav_tvshow {
+    width: 100%;
+    padding: 0.5em;
+    border-radius: 20px;
+    margin-top: 5px;
+
+}
+
+.burger_button {
+    cursor: pointer;
+    z-index: 100;
+}
+
+.burger_menu {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: var(--BlueGreen);
+    transition: all 2s;
+    transform: translateX(100%) rotate(0deg);
+}
+
+.moving_menu {
+    transform: translateX(0%) rotate(1800deg);
+    background: rgb(29, 28, 28);
+
+}
+
+@media screen and (min-width: 501px) {
+
+    .burger_button,
+    .burger_menu {
+        display: none;
+
+    }
+
+    .header_menu_div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        text-align: center;
+
+        cursor: pointer;
+    }
+
+    .ul_burger {
+        flex-direction: row;
+        height: auto;
+    }
+
+    .ul_burger li a {
+        text-decoration: none;
+    }
+
+    #searchWarpper {
+        width: 30%;
+    }
+
+
+
+
+}
