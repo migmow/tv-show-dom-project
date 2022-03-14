@@ -5,7 +5,7 @@ const articleTag = document.createElement("article");
 mainTag.appendChild(articleTag);
 articleTag.className = "render_article";
 mainTag.className = "main";
-const searchsearchCounterTag = document.createElement("h1");
+const searchCounterTag = document.createElement("h1");
 searchCounterTag.className = "counter";
 mainTag.append(searchCounterTag, articleTag);
 
