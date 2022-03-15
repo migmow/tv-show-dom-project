@@ -170,23 +170,22 @@ function fisrtPageRender(arr) {
   searchInput.setAttribute("placeholder", "search..");
   searchInput.className = "search_bar";
   searchInput.value = "";
+
   searchInput.addEventListener("input", (event) => {
     let myDisplay = myArray.filter(obj => {
-
+      //here the erorrs are being handled, not all tv shows have summary
       if (obj.genres || obj.status || obj.rating) {
         if (obj.summary && obj.summary.length > 1) {
           return obj.summary.includes(event.target.value) || obj.name.includes(event.target.value)
         }
       } else if (obj.summary && obj.name) {
         return obj.summary.includes(event.target.value) || obj.name.includes(event.target.value)
-
+        //for episodes
       } else {
         obj.name.includes(event.target.value)
       }
-
     });
 
-    //call our new array through episodeHandler function
     selectFavTag.value === "allShows" ? tvShowsRender(myDisplay) : episodesRender(myDisplay);
   })
   //level 400:=====================================================
