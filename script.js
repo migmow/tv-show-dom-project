@@ -15,13 +15,13 @@ function creatTwoDigits(n) {
 }
 const getAllEpisodesHandler = () => {
   const all = getAllShows();
-  fisrtPageRender(all);
+  renderFirstPage(all);
 
 }
 //=================================================================================================================
 
 //all means all TV Shows
-function episodesRender(allEpisodes) {
+function renderEpisodes(allEpisodes) {
   searchCounterTag.innerHTML = `found ${allEpisodes.length}`
   let myArray = allEpisodes;
   articleTag.innerHTML = "";
@@ -61,7 +61,7 @@ function episodesRender(allEpisodes) {
 
   })
 }
-const tvShowsRender = (allShows) => {
+const renderTvShows = (allShows) => {
   searchCounterTag.innerHTML = `found ${allShows.length}`
   articleTag.innerHTML = "";
   let myArray = allShows;
@@ -115,7 +115,7 @@ const tvShowsRender = (allShows) => {
 }
 
 
-function fisrtPageRender(arr) {
+function renderFirstPage(arr) {
   let myArray = arr;
   //Header:
   let headerTag = document.createElement("header");
@@ -191,7 +191,7 @@ function fisrtPageRender(arr) {
         myDisplay.push(obj)
       }
     })
-    selectFavTag.value === "allShows" ? tvShowsRender(myDisplay) : episodesRender(myDisplay);
+    selectFavTag.value === "allShows" ? renderTvShows(myDisplay) : renderEpisodes(myDisplay);
   })
 
   // creating and then sorting our dropdown menu of TV shows in an alphabetical order:
@@ -221,12 +221,12 @@ function fisrtPageRender(arr) {
         .then(data => {
           myArray = data;
           createSelectEpisodes(data);
-          return episodesRender(data);
+          return renderEpisodes(data);
         })
     } else {
       myArray = arr;
       createSelectEpisodes();
-      tvShowsRender(myArray);
+      renderTvShows(myArray);
     }
   })
 
@@ -261,7 +261,7 @@ function fisrtPageRender(arr) {
       noneValueOption.selected = true;
       selectEpisodeTag.addEventListener("change", () => {
         const filteredEpisodes = myArray.filter(obj => obj.name === selectEpisodeTag.value);
-        filteredEpisodes.length === 0 ? episodesRender(myArray) : episodesRender(filteredEpisodes);
+        filteredEpisodes.length === 0 ? renderEpisodes(myArray) : renderEpisodes(filteredEpisodes);
       })
       divSearchBar.appendChild(selectEpisodeTag)
     }
@@ -270,7 +270,7 @@ function fisrtPageRender(arr) {
   }
 
 
-  tvShowsRender(arr);
+  renderTvShows(arr);
 }
 
 
