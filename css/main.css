@@ -123,6 +123,10 @@ h1 {
   font-size: 0.8rem;
 }
 
+.tvshow_texts::-webkit-scrollbar {
+  display: none;
+}
+
 
 
 
@@ -171,9 +175,8 @@ h1 {
 
   .tvshow_texts {
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    overflow-y: scroll;
+
     padding-top: 0.5rem;
 
   }
@@ -181,7 +184,6 @@ h1 {
   .tvshow_texts p {
     padding: 0 0.7em;
     font-size: 1.1em;
-    overflow-y: scroll;
 
 
   }

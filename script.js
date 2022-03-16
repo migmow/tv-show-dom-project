@@ -171,32 +171,33 @@ function fisrtPageRender(arr) {
   searchInput.className = "search_bar";
   searchInput.value = "";
 
-  searchInput.addEventListener("input", (event) => {
-    let myDisplay = myArray.filter(obj => {
-      //here the erorrs are being handled, not all tv shows have summary
-      if (obj.genres || obj.status || obj.rating) {
-        if (obj.summary && obj.summary.length > 1) {
-          return obj.summary.includes(event.target.value) || obj.name.includes(event.target.value)
-        }
-      } else if (obj.summary && obj.name) {
-        return obj.summary.includes(event.target.value) || obj.name.includes(event.target.value)
-        //for episodes
-      } else {
-        obj.name.includes(event.target.value)
-      }
-    });
-
-    selectFavTag.value === "allShows" ? tvShowsRender(myDisplay) : episodesRender(myDisplay);
-  })
-  //level 400:=====================================================
   let selectFavTag = document.createElement("select");
   divSearchBar.append(searchInput, selectFavTag);
   selectFavTag.setAttribute("id", "fav_tvshow");
 
+  searchInput.addEventListener("input", (event) => {
+    let searchValue = event.target.value;
+    let myDisplay = [];
+    myArray.forEach(obj => {
+      if (obj.name && obj.name.includes(searchValue)) {
+        myDisplay.push(obj)
+      } else if (obj.summary && obj.summary.includes(searchValue)) {
+        myDisplay.push(obj)
+      } else if (obj.genres && obj.genres.join(" ").includes(searchValue)) {
+        myDisplay.push(obj)
+      } else if (obj.status && obj.status.includes(searchValue)) {
+        myDisplay.push(obj)
+      } else if (obj.rating && String(obj.rating.average).includes(searchValue)) {
+        myDisplay.push(obj)
+      }
+    })
+    selectFavTag.value === "allShows" ? tvShowsRender(myDisplay) : episodesRender(myDisplay);
+  })
+
   // creating and then sorting our dropdown menu of TV shows in an alphabetical order:
   const sortedArray = myArray.sort((a, b) => a.name.localeCompare(b.name));
   const allShowsOption = document.createElement("option");
-  //value of selectfavTaf will always be all tv shows when the page loads
+  //value of selectfavTaf will always be all tv shows when the page loads//Inside dropdown menu for TV SHOWS
   allShowsOption.value = "allShows";
   allShowsOption.innerText = "All TV Shows";
   selectFavTag.appendChild(allShowsOption);
